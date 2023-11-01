@@ -5,10 +5,25 @@ const auth = require('../../middleware/auth');
 const router = express.Router();
 var session = require('express-session');
 const Op = Sequelize.Op;
+
+//contacts route
+router.get("/", async(req, res) => {
+    User.findAll()
+        .then((user) =>
+
+            res.render("user/userlist", {
+                user,
+                layout: 'layout/dash-lay1'
+            })
+        )
+
+});
+
+
 //route
 router.get('/register', async(req, res) => {
     res.render('user/register', { layout: false });
-})
+});
 
 // sign up here
 router.post("/register", (req, res) => {

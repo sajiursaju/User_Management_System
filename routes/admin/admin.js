@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', async(req, res) => {
     res.render('admin', {
-        layout: false,
+        layout: 'layout/dash-lay1',
         // user: req.session.user
     });
 });
